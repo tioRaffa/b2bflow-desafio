@@ -33,10 +33,10 @@ def main():
             phone = contac.get('numero_telefone')
             zapi_service.send_greeting_message(contact_name=name, phone_number=phone)
     
-    except Exception as e:
-        logging.critical(f'Ocorreu um erro inesperado: {e}')
     except UndefinedValueError:
         logging.critical('Execução interrompida...')
+    except Exception as e:
+        logging.critical(f'Ocorreu um erro inesperado: {e}')
 
     logging.info('Processo Finalizado')
 
