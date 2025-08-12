@@ -7,6 +7,19 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 def main():
+    """
+    Função principal responsável por iniciar o processo de envio de mensagens.
+    Esta função executa as seguintes etapas:
+    1. Inicializa os serviços SupaBaseService e ZAPIService.
+    2. Recupera a lista de contatos do SupaBaseService.
+    3. Para cada contato, obtém o nome e o número de telefone e envia uma mensagem de saudação utilizando o ZAPIService.
+    4. Registra logs informativos sobre o início e o fim do processo.
+    5. Em caso de erro inesperado ou de valor indefinido, registra logs críticos.
+    Exceções tratadas:
+    - Exception: Captura erros inesperados durante a execução.
+    - UndefinedValueError: Captura interrupções devido a valores indefinidos.
+    """
+
     logging.info('Iniciando processo de envio de mensagem..')
 
     try:

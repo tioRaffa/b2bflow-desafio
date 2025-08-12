@@ -7,6 +7,24 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 class ZAPIService:
+    """
+    Classe ZAPIService
+    Esta classe fornece uma interface para integração com a API Z-API, permitindo o envio de mensagens de texto via WhatsApp.
+    Métodos
+    -------
+    __init__():
+        Inicializa a instância do serviço Z-API, carregando as credenciais necessárias a partir das variáveis de ambiente ou arquivo .env.
+        Em caso de ausência das credenciais, registra um erro no log e lança uma exceção.
+    
+    send_greeting_message(contact_name: str, phone_number: str) -> bool:
+        Envia uma mensagem de saudação personalizada para o número de telefone informado.
+        Parâmetros:
+            contact_name (str): Nome do contato que receberá a mensagem.
+            phone_number (str): Número de telefone do destinatário (incluindo DDD e código do país).
+        Retorna:
+            bool: True se a mensagem for enviada com sucesso, False caso ocorra algum erro.
+    """
+
     def __init__(self):
         try:
             instance_id = config('ZAPI_INSTANCE_ID')
