@@ -72,6 +72,7 @@ b2bflow-desafio/
       created_at timestamp with time zone NOT NULL DEFAULT now(),
       nome_contato text NULL,
       numero_telefone text NULL,
+      CONSTRAINT contatos_pkey PRIMARY KEY (id)
     );
     ```
 
