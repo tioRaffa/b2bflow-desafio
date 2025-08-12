@@ -12,7 +12,7 @@ def main():
 
     try:
         superbase_service = SuperBaseService()
-        zapi_service = ZAPIServiceTest()
+        zapi_service = ZAPIService()
 
         contacts = superbase_service.get_contacts()
 
