@@ -1,6 +1,5 @@
-from superbase_service import SuperBaseService
+from superbase_service import SupaBaseService
 from zapi_service import ZAPIService
-from zapi_service_TEST import ZAPIServiceTest
 from decouple import UndefinedValueError
 import logging
 
@@ -11,20 +10,19 @@ def main():
     logging.info('Iniciando processo de envio de mensagem..')
 
     try:
-        superbase_service = SuperBaseService()
+        superbase_service = SupaBaseService()
         zapi_service = ZAPIService()
 
         contacts = superbase_service.get_contacts()
 
-        if contacts:
-            for contac in contacts:
-                name = contac.get('nome_contato')
-                phone = contac.get('numero_telefone')
+        for contac in contacts:
+            name = contac.get('nome_contato')
+            phone = contac.get('numero_telefone')
 
-                if name and phone:
-                    zapi_service.send_greeting_message(contact_name=name, phone_number=phone)
-                else:
-                    logging.warning(f'Registro de contato invalido.. pulando: {contac}')
+            if name and phone:
+                zapi_service.send_greeting_message(contact_name=name, phone_number=phone)
+            else:
+                logging.warning(f'Registro de contato invalido.. pulando: {contac}')
     
     except Exception as e:
         logging.critical(f'Ocorreu um erro inesperado: {e}')
