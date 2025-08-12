@@ -18,11 +18,7 @@ def main():
         for contac in contacts:
             name = contac.get('nome_contato')
             phone = contac.get('numero_telefone')
-
-            if name and phone:
-                zapi_service.send_greeting_message(contact_name=name, phone_number=phone)
-            else:
-                logging.warning(f'Registro de contato invalido.. pulando: {contac}')
+            zapi_service.send_greeting_message(contact_name=name, phone_number=phone)
     
     except Exception as e:
         logging.critical(f'Ocorreu um erro inesperado: {e}')
