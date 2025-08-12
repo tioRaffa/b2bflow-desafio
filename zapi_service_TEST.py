@@ -4,7 +4,7 @@ import requests
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-class ZAPIService:
+class ZAPIServiceTest:
     def __init__(self):
         try:
             instance_id = config('ZAPI_INSTANCE_ID')
@@ -17,19 +17,24 @@ class ZAPIService:
         self.headers = {'Content-Type': 'application/json'}
         logging.info('Serviço Z-API iniciado com sucesso.')
 
-    def send_greeting_message(self, contact_name: str, phone_number: str):
+    def send_greeting_message(self, contact_name, phone_number):
         url = f'{self.base_url}/send-text'
+
+        test_phone = '5549998186440@c.us'
+        test_msg = 'blabalbalbal @c.us'
+
+
         payload = {
-            "phone": phone_number,
-            "message": f"Olá {contact_name}, tudo bem com você?"
+            "phone": test_phone,
+            "message": test_msg
         }
 
         try:
-            logging.info(f'Enviando mensagem para {contact_name} - {phone_number} ...')
-            response = requests.post(url=url, json=payload, headers=self.headers)
+            logging.info(f"Enviando MENSAGEM DE TESTE FIXA para {test_phone}...")
+            response = requests.post(url, json=payload, headers=self.headers)
             response.raise_for_status()
             logging.info(f'Mensagem para {contact_name} enviada com sucesso!')
             return True
         except requests.exceptions.RequestException as e:
-            logging.error(f'Erro ao enviar mensagem para {contact_name}: {e}')
+            logging.error(f"Erro ao enviar mensagem de teste: {e.response.text if e.response else str(e)}")
             return False

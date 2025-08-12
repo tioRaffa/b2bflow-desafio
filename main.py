@@ -1,5 +1,6 @@
 from superbase_service import SuperBaseService
 from zapi_service import ZAPIService
+from zapi_service_TEST import ZAPIServiceTest
 from decouple import UndefinedValueError
 import logging
 
@@ -11,7 +12,7 @@ def main():
 
     try:
         superbase_service = SuperBaseService()
-        zapi_service = ZAPIService()
+        zapi_service = ZAPIServiceTest()
 
         contacts = superbase_service.get_contacts()
 
