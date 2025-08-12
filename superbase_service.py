@@ -11,7 +11,7 @@ def is_valid_name(name):
         return False
     return True
 
-def is_valid_br_nunber(phone_number):
+def is_valid_br_number(phone_number):
     if not phone_number or not isinstance(phone_number, str):
         return False
     
@@ -32,7 +32,7 @@ class SupaBaseService:
             raise
 
         self.client: Client = create_client(supabase_key=supabase_key, supabase_url=supabase_url)
-        logging.info('Serviço Supabase inciado com sucesso.')
+        logging.info('Serviço Supabase iniciado com sucesso.')
 
     
     def get_contacts(self):
@@ -43,22 +43,22 @@ class SupaBaseService:
             if not response.data:
                 return None
             
-            all_contacs = response.data
+            all_contacts = response.data
             valid_contacs = []
 
-            logging.info(f'{len(all_contacs)} contatos encontrados')
+            logging.info(f'{len(all_contacts)} contatos encontrados')
 
-            for contact in all_contacs:
+            for contact in all_contacts:
                 name = contact.get('nome_contato')
                 phone = contact.get('numero_telefone')
 
-                if is_valid_name(name) and is_valid_br_nunber(phone):
+                if is_valid_name(name) and is_valid_br_number(phone):
                     valid_contacs.append(contact)
                 else:
                     logging.warning(f'Informaçoes de contato invalida: {name} - {phone}')
 
             
-            logging.info(f'Validação concluida. {len(valid_contacs)} de {len(all_contacs)} são validos.')
+            logging.info(f'Validação concluida. {len(valid_contacs)} de {len(all_contacts)} são validos.')
             return valid_contacs
         
         except Exception as e:
