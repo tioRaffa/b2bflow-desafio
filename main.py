@@ -1,4 +1,4 @@
-from superbase_service import SupaBaseService
+from supabase_service import SupaBaseService
 from zapi_service import ZAPIService
 from decouple import UndefinedValueError
 import logging
