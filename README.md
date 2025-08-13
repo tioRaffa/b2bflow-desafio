@@ -162,14 +162,10 @@ A saída do terminal demonstra o processo de validação e envio:
   <summary>▶️ Informações de contato VÁLIDOS </summary>
   <img width="1380" height="330" alt="Image" src="https://github.com/user-attachments/assets/159f1995-daa3-4da3-a395-e32dc26c80d7" />
 </details>
-
-> **Nota sobre a Captura de Tela do Resultado no WhatsApp:**
->
-> O código do projeto está 100% funcional e a lógica de envio para a API da Z-API foi implementada e validada com sucesso, como pode ser comprovado nesta seção que exibe os logs do terminal com o status de "Mensagem enviada com sucesso!".
->
-> No entanto, devido a uma instabilidade técnica externa na plataforma da Z-API que impede restabelecer a conexão com a instância existente via QR Code e codigo, não foi possível gerar a captura de tela final das mensagens sendo recebidas no WhatsApp.
->
-> A imagem será incluída neste `README` assim que o serviço de conexão da Z-API for normalizado.
+<details>
+  <summary>▶️ Mensagem enviada no WhatsApp </summary>
+    <img width="576" height="646" alt="Image" src="https://github.com/user-attachments/assets/508da8da-bce0-4b58-9a11-f9c5bd917344" />
+</details>
 
 ---
 
